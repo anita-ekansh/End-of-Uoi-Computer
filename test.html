@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style3.css">
+    <link rel="stylesheet" href="#"/>
+    <style>body{background-color:rgb(88, 171, 255, 0.883)}
+    h2{color:yellow;font-size:43px;font-family:Architects Daughter;}
+body {
+  font-family: Arial;
+  margin: 0;
+  background-image: url("img3.jpg");
+  background-repeat: no-repeat;
+  background-size: 1290px 593px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  vertical-align: middle;
+}
+.container {
+  position: relative;
+}
+
+.Slides {
+  display: none;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 45px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 10px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.caption-container {
+  text-align: center;
+  background-color: rgb(0, 0, 0);
+  padding: 10px 100px;
+  font-weight:bolder;
+  font-size:x-large;
+  color: rgb(217, 230, 248);
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+  width: 20.66%;
+}
+
+.demo {
+  opacity: 0.8;
+}
+
+.active,
+.demo:hover {
+  opacity: 3;
+  transition: all 0.8s ease;
+}
+</style>
+<body>
+
+    <nav>
+        <div class="menu">
+          <div class="logo">
+            <a href="Main.html">EasyTrip.com</a>
+          </div>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="frames.html">Frames</a></li>
+            <li><a href="Main_page.html">Feedback</a></li>
+          </ul>
+        </div>
+      </nav>
+
+<h2 style="text-align:center">Best Places To Visit In Switzerland:</h2>
+
+<div class="container">
+  <div class="Slides">
+    <div class="numbertext">1 / 6</div>
+   <center><img src="bern.jpg" style="width:46%;height:4"></center>
+  </div>
+
+  <div class="Slides">
+    <div class="numbertext">2 / 6</div>
+    <center><img src="Engleberg.jpg" style="width:46%"></center>
+  </div>
+
+  <div class="Slides">
+    <div class="numbertext">3 / 6</div>
+    <center><img src="glacier 3000.jpg" style="width:46%"></center>
+  </div>
+    
+  <div class="Slides">
+    <div class="numbertext">4 / 6</div>
+    <center><img src="titlis.jpg" style="width:46%"></center>
+  </div>    
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+
+  <div class="caption-container">
+    <p id="caption"></p>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <img class="demo cursor" src="bern.jpg" style="width:100%" onclick="currentSlide(1)"alt="Bern">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="Engleberg.jpg" style="width:100%" onclick="currentSlide(2)" alt="Engleberg">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="glacier 3000.jpg" style="width:100%" onclick="currentSlide(3)" alt="Glacier 3000">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="titlis.jpg" style="width:100%" onclick="currentSlide(4)" alt="Titlis">
+    </div> 
+  </div>
+</div>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("Slides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
+    
+</body>
+</html>
